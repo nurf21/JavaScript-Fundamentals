@@ -2,12 +2,21 @@
 <html>
 <head>
     <title>JavaScript Message</title>
+    <style>
+        #message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00698f;
+        }
+    </style>
 </head>
 <body>
   <div id="message"></div>
   <script>
       // Display message using DOM manipulation
-      document.getElementById('message').textContent = "I'm JavaScript!";
+      const messageElement = document.getElementById('message');
+      messageElement.textContent = "I'm JavaScript!";
+      messageElement.style.textAlign = 'center';
   </script>
 </body>
 </html>
