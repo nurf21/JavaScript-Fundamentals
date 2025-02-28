@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name Input Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    input {
+      padding: 8px;
+      margin: 10px;
+      width: 200px;
+    }
+
+    button {
+      padding: 8px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Name Input Demo</h1>
+    <label for="nameInput">Enter your name:</label>
+    <input type="text" id="nameInput">
+    <button onclick="showName()">Show Name</button>
+    <div id="output"></div>
+  </div>
+  <script>
+    function showName() {
+      // Get input value
+      const nameInput = document.getElementById('nameInput');
+      const outputElement = document.getElementById('output');
+
+      // Display the name
+      if (nameInput.value.trim() !== '') {
+        outputElement.textContent = `Hello, ${nameInput.value}!`;
+      } else {
+        outputElement.textContent = 'Please enter a name!';
+        outputElement.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
