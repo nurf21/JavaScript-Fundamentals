@@ -1,4 +1,5 @@
-alert("I'm JavaScript!")
+// Display message using external JavaScript
+document.getElementById('message').textContent = "I'm JavaScript!";
 
 // Declare variables
 let admin, name;
