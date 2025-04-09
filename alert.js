@@ -39,12 +39,19 @@ if (num > 0) {
     alert(0);
 }
 
-let a = 2, b = 2;
-let result = (a + b < 4) ? 'Below' : 'Over';
+let username = prompt("Enter your username:", "");
 
-let login = 'Employee';
-let message =
-  login === 'Employee' ? 'Hello' :
-  login === 'Director' ? 'Greetings' :
-  login === ''         ? 'No login' : 
-  'Unknown login';
+if (username === "Admin") {
+    let password = prompt("Enter password:", "");
+    if (password === "TheMaster") {
+        alert("Welcome!");
+    } else if (password === null || password === "") {
+        alert("Canceled");
+    } else {
+        alert("Wrong password");
+    }
+} else if (username === null || username === "") {
+    alert("Canceled");
+} else {
+    alert("I don't know you");
+}
