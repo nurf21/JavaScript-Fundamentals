@@ -22,15 +22,20 @@ let currentUserName = "John";
 // Usage example
 alert(`Welcome to ${ourPlanet}, ${currentUserName}!`);
 
+// Ask for the "official" name of JavaScript
 let answer = prompt('What is the "official" name of JavaScript?');
+
+// Check the answer
 if (answer === 'ECMAScript') {
     alert('Right!');
 } else {
     alert('You don\'t know? ECMAScript!');
 }
 
-let num = +prompt("Enter a number:");  // Convert input to a number
+// Ask for a number and convert it to a number
+let num = +prompt("Enter a number:");
 
+// Check the number
 if (num > 0) {
     alert(1);
 } else if (num < 0) {
@@ -39,8 +44,10 @@ if (num > 0) {
     alert(0);
 }
 
+// Ask for username and password
 let username = prompt("Enter your username:", "");
 
+// Check the username
 if (username === "Admin") {
     let password = prompt("Enter password:", "");
     if (password === "TheMaster") {
