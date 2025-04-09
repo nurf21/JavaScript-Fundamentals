@@ -32,6 +32,10 @@
       margin-top: 20px;
       font-size: 1.2em;
     }
+
+    .error {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -51,9 +55,10 @@
       // Display the name
       if (nameInput.value.trim() !== '') {
         outputElement.textContent = `Hello, ${nameInput.value}!`;
+        outputElement.classList.remove('error');
       } else {
         outputElement.textContent = 'Please enter a name!';
-        outputElement.style.color = 'red';
+        outputElement.classList.add('error');
       }
     }
   </script>
