@@ -64,12 +64,12 @@ if (username === "Admin") {
 }
 
 for (let i = 2; i <= 10; i += 2) {
-  alert(i);
+  console.log(i);
 }
 
 let i = 0;
 while (i < 3) {
-  alert(`number ${i}!`);
+  console.log(`number ${i}!`);
   i++;
 }
 
@@ -78,6 +78,9 @@ do {
   numInput = prompt("Enter a number greater than 100:", "");
   if (numInput === null || numInput === "") break; // Exit on cancel/empty input
   numInput = Number(numInput);
+  if (isNaN(numInput)) {
+    alert("Invalid input. Please enter a number.");
+  }
 } while (numInput <= 100);
 
 let n = prompt("Enter a number:", 10);
@@ -95,4 +98,4 @@ for (let num = 2; num <= n; num++) {
   if (isPrime) primes.push(num);
 }
 
-alert(primes.join(', '));  // Output: "2, 3, 5, 7" when n=10
+console.log(primes.join(', '));
