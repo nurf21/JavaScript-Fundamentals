@@ -63,16 +63,19 @@ if (username === "Admin") {
   alert("I don't know you");
 }
 
+// Loop
 for (let i = 2; i <= 10; i += 2) {
   console.log(i);
 }
 
+// While loop
 let i = 0;
 while (i < 3) {
   console.log(`number ${i}!`);
   i++;
 }
 
+// Do-while loop
 let numInput;
 do {
   numInput = prompt("Enter a number greater than 100:", "");
@@ -83,6 +86,7 @@ do {
   }
 } while (numInput <= 100);
 
+// Prime number generation
 let n = prompt("Enter a number:", 10);
 let primes = [];
 
@@ -100,6 +104,7 @@ for (let num = 2; num <= n; num++) {
 
 console.log(primes.join(', '));
 
+// Browser detection
 if (browser === 'Edge') {
   alert("You've got the Edge!");
 } else if (['Chrome', 'Firefox', 'Safari', 'Opera'].includes(browser)) {
@@ -108,6 +113,7 @@ if (browser === 'Edge') {
   alert('We hope that this page looks ok!');
 }
 
+// Switch statement
 let a = +prompt('a?', '');
 switch (a) {
   case 0:
@@ -124,6 +130,7 @@ switch (a) {
     alert('Invalid input');
 }
 
+// Functions
 function checkAgeTernar(age) {
   return age > 18 ? true : confirm('Did parents allow you?');
 }
