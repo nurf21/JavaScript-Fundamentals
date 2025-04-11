@@ -123,3 +123,15 @@ switch (a) {
   default:
     alert('Invalid input');
 }
+
+function checkAgeTernar(age) {
+  return age > 18 ? true : confirm('Did parents allow you?');
+}
+
+function checkAgeOr(age) {
+  return age > 18 || confirm('Did parents allow you?');
+}
+
+function min(a, b) {
+  return a < b ? a : b;
+}
