@@ -23,44 +23,44 @@ let currentUserName = "John";
 alert(`Welcome to ${ourPlanet}, ${currentUserName}!`);
 
 // Ask for the "official" name of JavaScript
-let answer = prompt('What is the "official" name of JavaScript?');
-
-// Check the answer
-if (answer === 'ECMAScript') {
-  alert('Right!');
-} else {
-  alert('You don\'t know? ECMAScript!');
+function getOfficialName() {
+  let answer = prompt('What is the "official" name of JavaScript?');
+  if (answer === 'ECMAScript') {
+    alert('Right!');
+  } else {
+    alert('You don\'t know? ECMAScript!');
+  }
 }
 
 // Ask for a number and convert it to a number
-let num = +prompt("Enter a number:");
-
-// Check the number
-if (num > 0) {
-  alert(1);
-} else if (num < 0) {
-  alert(-1);
-} else {
-  alert(0);
+function getNumber() {
+  let num = +prompt("Enter a number:");
+  if (num > 0) {
+    alert(1);
+  } else if (num < 0) {
+    alert(-1);
+  } else {
+    alert(0);
+  }
 }
 
 // Ask for username and password
-let username = prompt("Enter your username:", "");
-
-// Check the username
-if (username === "Admin") {
-  let password = prompt("Enter password:", "");
-  if (password === "TheMaster") {
-    alert("Welcome!");
-  } else if (password === null || password === "") {
+function authenticate() {
+  let username = prompt("Enter your username:", "");
+  if (username === "Admin") {
+    let password = prompt("Enter password:", "");
+    if (password === "TheMaster") {
+      alert("Welcome!");
+    } else if (password === null || password === "") {
+      alert("Canceled");
+    } else {
+      alert("Wrong password");
+    }
+  } else if (username === null || username === "") {
     alert("Canceled");
   } else {
-    alert("Wrong password");
+    alert("I don't know you");
   }
-} else if (username === null || username === "") {
-  alert("Canceled");
-} else {
-  alert("I don't know you");
 }
 
 // Loop
@@ -87,27 +87,26 @@ do {
 } while (numInput <= 100);
 
 // Prime number generation
-let n = prompt("Enter a number:", 10);
-let primes = [];
-
-for (let num = 2; num <= n; num++) {
-  let isPrime = true;
-  // Check divisors up to square root of num
-  for (let i = 2; i * i <= num; i++) {
-    if (num % i === 0) {
-      isPrime = false;
-      break;
+function generatePrimes(n) {
+  let primes = [];
+  for (let num = 2; num <= n; num++) {
+    let isPrime = true;
+    for (let i = 2; i * i <= num; i++) {
+      if (num % i === 0) {
+        isPrime = false;
+        break;
+      }
     }
+    if (isPrime) primes.push(num);
   }
-  if (isPrime) primes.push(num);
+  return primes;
 }
 
-console.log(primes.join(', '));
-
 // Browser detection
-if (browser === 'Edge') {
+const browser = navigator.userAgent;
+if (browser.includes('Edge')) {
   alert("You've got the Edge!");
-} else if (['Chrome', 'Firefox', 'Safari', 'Opera'].includes(browser)) {
+} else if (['Chrome', 'Firefox', 'Safari', 'Opera'].some(browserName => browser.includes(browserName))) {
   alert('Okay we support these browsers too');
 } else {
   alert('We hope that this page looks ok!');
@@ -148,6 +147,10 @@ function ask(question, yes, no) {
   else no();
 }
 
+getOfficialName();
+getNumber();
+authenticate();
+console.log(generatePrimes(10).join(', '));
 ask(
   "Do you agree?",
   () => alert("You agreed."),
