@@ -2,6 +2,13 @@
 <script>
   'use strict';
 
+  /**
+   * Calculates the power of a number.
+   * 
+   * @param {number} x The base number.
+   * @param {number} n The exponent.
+   * @returns {number} The result of x to the power of n.
+   */
   function pow(x, n) {
     if (n === 0) return 1;
     if (n < 0) return 1 / pow(x, -n);
@@ -17,6 +24,11 @@
   } else if (!Number.isInteger(n)) {
     alert("The exponent (n) must be an integer");
   } else {
-    alert(`Result: ${pow(x, n)}`);
+    try {
+      let result = pow(x, n);
+      alert(`Result: ${result}`);
+    } catch (error) {
+      alert("An error occurred: " + error.message);
+    }
   }
 </script>

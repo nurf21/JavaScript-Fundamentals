@@ -35,7 +35,9 @@ function getOfficialName() {
 // Ask for a number and convert it to a number
 function getNumber() {
   let num = +prompt("Enter a number:");
-  if (num > 0) {
+  if (isNaN(num)) {
+    alert("Invalid input. Please enter a number.");
+  } else if (num > 0) {
     alert(1);
   } else if (num < 0) {
     alert(-1);
@@ -47,17 +49,17 @@ function getNumber() {
 // Ask for username and password
 function authenticate() {
   let username = prompt("Enter your username:", "");
-  if (username === "Admin") {
+  if (username === null || username === "") {
+    alert("Canceled");
+  } else if (username === "Admin") {
     let password = prompt("Enter password:", "");
-    if (password === "TheMaster") {
-      alert("Welcome!");
-    } else if (password === null || password === "") {
+    if (password === null || password === "") {
       alert("Canceled");
+    } else if (password === "TheMaster") {
+      alert("Welcome!");
     } else {
       alert("Wrong password");
     }
-  } else if (username === null || username === "") {
-    alert("Canceled");
   } else {
     alert("I don't know you");
   }

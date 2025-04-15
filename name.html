@@ -42,19 +42,22 @@
   <div class="container">
     <h1>Name Input Demo</h1>
     <label for="nameInput">Enter your name:</label>
-    <input type="text" id="nameInput">
-    <button onclick="showName()">Show Name</button>
+    <input type="text" id="nameInput" required>
+    <button id="showNameButton">Show Name</button>
     <div id="output"></div>
   </div>
   <script>
-    function showName() {
-      // Get input value
-      const nameInput = document.getElementById('nameInput');
-      const outputElement = document.getElementById('output');
+    const nameInput = document.getElementById('nameInput');
+    const outputElement = document.getElementById('output');
+    const showNameButton = document.getElementById('showNameButton');
 
-      // Display the name
-      if (nameInput.value.trim() !== '') {
-        outputElement.textContent = `Hello, ${nameInput.value}!`;
+    showNameButton.addEventListener('click', showName);
+
+    function showName() {
+      const name = nameInput.value.trim();
+
+      if (name !== '') {
+        outputElement.textContent = `Hello, ${name}!`;
         outputElement.classList.remove('error');
       } else {
         outputElement.textContent = 'Please enter a name!';
