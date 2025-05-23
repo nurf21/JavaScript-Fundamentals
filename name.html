@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Name Input Demo</title>
   <style>
@@ -38,6 +39,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <h1>Name Input Demo</h1>
@@ -64,6 +66,20 @@
         outputElement.classList.add('error');
       }
     }
+
+    // Add event listener to input field to show name on enter key press
+    nameInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        showName();
+      }
+    });
+
+    // Add event listener to input field to clear output on input change
+    nameInput.addEventListener('input', () => {
+      outputElement.textContent = '';
+      outputElement.classList.remove('error');
+    });
   </script>
 </body>
+
 </html>
