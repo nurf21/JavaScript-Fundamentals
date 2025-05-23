@@ -34,16 +34,11 @@ function getOfficialName() {
 
 // Ask for a number and convert it to a number
 function getNumber() {
-  let num = +prompt("Enter a number:");
-  if (isNaN(num)) {
+  let num;
+  while (isNaN(num = +prompt("Enter a number:"))) {
     alert("Invalid input. Please enter a number.");
-  } else if (num > 0) {
-    alert(1);
-  } else if (num < 0) {
-    alert(-1);
-  } else {
-    alert(0);
   }
+  alert(Math.sign(num));
 }
 
 // Ask for username and password
