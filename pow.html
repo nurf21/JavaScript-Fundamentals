@@ -16,19 +16,29 @@
     return x * pow(x * x, (n - 1) / 2);
   }
 
-  let x = Number(prompt("Enter the base (x):"));
-  let n = Number(prompt("Enter the exponent (n):"));
-
-  if (isNaN(x) || isNaN(n)) {
-    alert("Please enter valid numbers for both values");
-  } else if (!Number.isInteger(n)) {
-    alert("The exponent (n) must be an integer");
-  } else {
-    try {
-      let result = pow(x, n);
-      alert(`Result: ${result}`);
-    } catch (error) {
-      alert("An error occurred: " + error.message);
+  function getNumber(promptMessage) {
+    while (true) {
+      const input = Number(prompt(promptMessage));
+      if (!isNaN(input)) return input;
+      alert("Please enter a valid number");
     }
+  }
+
+  function getInteger(promptMessage) {
+    while (true) {
+      const input = getNumber(promptMessage);
+      if (Number.isInteger(input)) return input;
+      alert("Please enter a valid integer");
+    }
+  }
+
+  const x = getNumber("Enter the base (x):");
+  const n = getInteger("Enter the exponent (n):");
+
+  try {
+    const result = pow(x, n);
+    alert(`Result: ${result}`);
+  } catch (error) {
+    alert("An error occurred: " + error.message);
   }
 </script>
